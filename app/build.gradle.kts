@@ -2,10 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.apollo)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
-    namespace = "com.supriya.demo"
+    namespace = "com.supriya.demographql"
     compileSdk = 35
 
     defaultConfig {
@@ -56,4 +60,16 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    // apollo
+    implementation(libs.apollo.runtime)
+
+    //Navigation
+    implementation(libs.hilt.compose.navigation)
+    implementation(libs.kotlinx.serialization)
+    implementation(libs.navigation.compose)
 }
